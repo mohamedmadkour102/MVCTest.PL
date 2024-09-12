@@ -1,0 +1,32 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create new Employee</h1>
+<br />
+<br />
+<form asp-action="Create">
+
+    <partial name="PartialViews/CreateEditEmployeePartial"></partial>
+
+    <input type="submit" value="Create" class="btn btn-primary mt-5" />
+    @* لو دوست لحد دلوقتي على سامبيت مش هيعمل اي حاجه ، لازم نقوله في الاكشن بتاع الفورم فوق لان السامبيت بيروح ينفذ الاكشن بتاع الفورم*@
+    <a asp-action="Index" class="btn btn-light">Back To List </a>
+
+
+
+</form>
+
+
+
+@section validatesection
+{
+    @*اللينكين دول موجودين في الفايل اللي موجود في الشيرد بتاع الفاليديشن ف ممكن اعمله استدعاء افضل*@
+@*     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script> *@
+    <partial name="_ValidationScriptsPartial"></partial>
+}
+
+

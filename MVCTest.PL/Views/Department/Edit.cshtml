@@ -1,0 +1,22 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Department</h1>
+<br />
+<br />
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly"></div>
+    @*لما بتكون All *@
+    @*كاني بقول تعمل ملخص لكل الفاليديشنز اللي عندي *@
+    @*يعني هتقولي انه في فاليديشن على الكود مثلا والاسم وهكذا *@
+    @*في حالة الموديل اونلي زي ماهي فوق كده ، ده بيروح يجيب الفاليديشن
+    اللي في الداتابيز لو حصل هناك مشكلة
+    *@
+    @*هنا انا عملت هاندلة في الفرونت مش اكتر *@
+    <partial name="PartialViews/CreateEditDepartmentPartial"></partial>
+    <input type="submit" value="Save" class="btn btn-primary mt-5" />
+    @* لو دوست لحد دلوقتي على سامبيت مش هيعمل اي حاجه ، لازم نقوله في الاكشن بتاع الفورم فوق لان السامبيت بيروح ينفذ الاكشن بتاع الفورم*@
+    <a asp-action="Index" class="btn btn-light">Back To List </a>
+</form>

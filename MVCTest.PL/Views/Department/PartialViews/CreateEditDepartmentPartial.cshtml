@@ -1,0 +1,20 @@
+﻿ @model Department
+
+
+<div>
+    <label class="col-form-label" asp-for="Code">  </label>
+    <input type="text" asp-for="Code" class="form-control" />
+    <span asp-validation-for="Code" class="text-danger"> </span>
+    @*بيروح يشوف الايرور ماسج اللي انت حاططها في الكود *@
+</div>
+<div>
+    <label class="col-form-label" asp-for="Name">  </label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"> </span>
+
+</div>
+<div>
+    <label class="col-form-label" asp-for="DateOfCreation">  </label>
+    <input asp-for="DateOfCreation" class="form-control" />
+
+</div>

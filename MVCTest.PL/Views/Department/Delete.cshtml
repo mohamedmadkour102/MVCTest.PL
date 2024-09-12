@@ -1,0 +1,17 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Are You sure You want to Delete this Department</h1>
+<br />
+<br />
+<form asp-action="Delete" asp-route-id="@Model.Id">
+    @*لما بيدوس سامبيت تحت بيروح على الاكشن ديه اللي هي الاكشن بتاعت الفورم *@
+    @*وده الاي دي اللي هيبعته للاكشن *@
+    <partial name="PartialViews/DetailsDeleteDepartmentPartial"></partial>
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-light mt-5">Cancel </a>
+
+
+</form>

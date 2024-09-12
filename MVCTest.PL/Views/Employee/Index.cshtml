@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    string viewdata = ViewData["Massage"] as string; 
+    @*هنا لازم اعمل كاستينج لو حبيت اخزنه في ففاريبالي*@
+    string viewbag = ViewBag.Massage; 
+    @*هنا مش لازم *@
+}
+
+@* <div class="alert alert-warning ">
+    @ViewData["Massage"]
+</div>
+ *@
+
+@* <div class="alert alert-success ">
+    @ViewBag.Massage
+</div> *@
+@if (!string.IsNullOrEmpty(TempData["Massage"] as string))
+{
+    <div class="alert alert-primary ">
+        @TempData["Massage"]
+    </div>
+    
+}
+
+
+
+<h1>All Employees</h1>
+<br />
+<br />
+
+@*هنا انا عملت الزرار اللي هعمل من خلاله كريشن لقسم جديد وخليته يروح على الاكشن اللي اسمه كريت اللي هو لسه اصلا انا هعمله *@
+<a asp-controller="Employee" asp-action="Create" class="btn btn-primary">Create New Employee</a>
+
+@*الداتا اللي انا باعتها في الفيو بتكون متشالة في المودل اللي انا عامل عليه ال كونديشن ده *@
+@*هنا انا بعمل تشيك على الكاونت اللي في الداتا اللي مبعوتة في الموديل
+    الموديل ده حاليا شايل الداتا اللي مبعوته للفيو  *@
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(D => D.Name)</th>
+                <th>@Html.DisplayNameFor(D => D.Age)</th>
+                <th>@Html.DisplayNameFor(D => D.Address)</th>
+                <th>@Html.DisplayNameFor(D => D.Salary)</th>
+                <th>@Html.DisplayNameFor(D => D.IsActive)</th>
+                <th>@Html.DisplayNameFor(D => D.Gender)</th>
+                <th>@Html.DisplayNameFor(D => D.Email)</th>
+                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Employee in Model)
+            {
+                <tr>
+                    <td>@Employee.Name</td>
+                    <td>@Employee.Age</td>
+                    <td>@Employee.Address</td>
+                    <td>@Html.DisplayFor(M=>Employee.Salary)</td>
+                    <td>@Html.DisplayFor(M => Employee.IsActive)</td>
+                    <td>@Employee.Gender</td>
+                    <td>@Html.DisplayFor(M => Employee.Email)</td>
+                    <partial name ="_ButtonPartial" model="@Employee.Id"></partial>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="mt-5 alert alert-warning">
+        <h3>There is no Employees</h3>
+    </div>
+}
