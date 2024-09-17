@@ -36,7 +36,7 @@ namespace MVCTest.PL
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IEmployeeReopsitory,EmployeeRepository>();
             // б«дн дёб  бнЁб «бѕндѕ«д”н бб—н»ж Ё »ня—н ж ед«я ж»н»Џ е ббћндн—ня —н»ж 
-            //б–«бя Џгб  —нћн” — ед« бб
+            //б–«бя Џгб  —нћн” — ед« бб—н»ж
 
         }
 
