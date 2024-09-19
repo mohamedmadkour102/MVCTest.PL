@@ -9,6 +9,8 @@ using MVCTest.BLL.Interfaces;
 using MVCTest.BLL.Repositories;
 using MVCTest.DAL.Data;
 using MVCTest.DAL.Models;
+using MVCTest.PL.Extensions;
+using MVCTest.PL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,10 +35,15 @@ namespace MVCTest.PL
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-            services.AddScoped<IEmployeeReopsitory,EmployeeRepository>();
-            // ·«‰Ì ‰ﬁ·  ·Ì›· «·œÌ‰œ«‰”Ì ··—Ì»Ê › »Ìﬂ—Ì Ê Â‰«ﬂ Ê»Ì»⁄ Â ··ÃÌ‰Ì—Ìﬂ —Ì»Ê 
-            //·–«·ﬂ ⁄„·  —ÌÃÌ” — Â‰« ··—Ì»Ê
+
+            services.AddApplicationServices(); // Extension Method
+            services.AddAutoMapper(m => m.AddProfile(new MappingProfiles()));
+
+    
+          
+            // √°√á√§√≠ √§√û√°√ä √°√≠√ù√° √á√°√è√≠√§√è√á√§√ì√≠ √°√°√ë√≠√à√¶ √ù √à√≠√ü√ë√≠√ä√¶ √•√§√á√ü √¶√à√≠√à√ö√ä√• √°√°√å√≠√§√≠√ë√≠√ü √ë√≠√à√¶ 
+            //√°√ê√á√°√ü √ö√£√°√ä √ë√≠√å√≠√ì√ä√ë √•√§√á √°√°√ë√≠√à√¶
+
 
         }
 

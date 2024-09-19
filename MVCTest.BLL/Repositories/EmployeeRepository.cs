@@ -29,6 +29,9 @@ namespace MVCTest.BLL.Repositories
            
         }
 
-
+        public IQueryable GetEmployeeByName(string name)
+        {
+            return _dbContext1.Employees.Where(E=>E.Name.ToLower().Contains(name));   
+        }
     }
 }

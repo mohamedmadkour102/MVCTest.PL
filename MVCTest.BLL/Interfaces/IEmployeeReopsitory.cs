@@ -9,6 +9,8 @@ namespace MVCTest.BLL.Interfaces
 {
     public interface IEmployeeReopsitory : IGenericRepository<Employee>
     {
-         IQueryable GetEmployeeByAddress(string address);
+     
+        IQueryable GetEmployeeByAddress(string address);
+         IQueryable GetEmployeeByName(string name);
     }
 }
