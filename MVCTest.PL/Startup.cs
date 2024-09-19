@@ -35,8 +35,16 @@ namespace MVCTest.PL
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
             services.AddApplicationServices(); // Extension Method
             services.AddAutoMapper(m => m.AddProfile(new MappingProfiles()));
+
+    
+          
+            // áÇäí äÞáÊ áíÝá ÇáÏíäÏÇäÓí ááÑíÈæ Ý ÈíßÑíÊæ åäÇß æÈíÈÚÊå ááÌíäíÑíß ÑíÈæ 
+            //áÐÇáß ÚãáÊ ÑíÌíÓÊÑ åäÇ ááÑíÈæ
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
