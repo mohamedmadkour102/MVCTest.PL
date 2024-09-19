@@ -15,6 +15,8 @@ namespace MVCTest.DAL.Data.Configurations
         {
             // Fluent Api's
             builder.Property(D => D.Id).UseIdentityColumn(10, 10);
+            
+            builder.HasMany(D => D.Employees).WithOne(D => D.Department).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Employee
+﻿@model EmployeeViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -7,7 +7,7 @@
 <h1>Create new Employee</h1>
 <br />
 <br />
-<form asp-action="Create">
+<form asp-action="Create" enctype="multipart/form-data"> @*لازم عشان تقدر تحط صورة في الفورم *@
 
     <partial name="PartialViews/CreateEditEmployeePartial"></partial>
 

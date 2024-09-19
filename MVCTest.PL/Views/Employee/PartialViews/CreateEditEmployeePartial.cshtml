@@ -1,4 +1,10 @@
-﻿ @model Employee
+﻿
+@model EmployeeViewModel
+@inject IUnitOfWork _unitOfWork
+@{
+    //iewData["Department"] = _departmentRepository.GetAll();
+    var department = new SelectList(_unitOfWork.DepartmentRepository.GetAll(), nameof(Department.Id), nameof(Department.Name));
+}
 
 <div>
     <label class="col-form-label" asp-for="Name">  </label>
@@ -56,4 +62,17 @@
     <input asp-for="HireDate" class="form-control" />
 
 
+</div>
+
+@*Department Selection*@
+<div class="from-group">
+    <label class="col-form-label" asp-for="Department"></label>
+    <select class="form-control" asp-items="@department" asp-for="DepartmentId">
+        <option value="@null">--Select Department-- </option>
+    </select>
+</div>
+
+<div>
+    <label class="col-form-label " asp-for="Image"></label>
+    <input class="form-control-file"   asp-for="Image"/>
 </div>

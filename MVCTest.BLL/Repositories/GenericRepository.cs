@@ -19,22 +19,30 @@ namespace MVCTest.BLL.Repositories
             _dbContext1 = dbContext;
         }
 
-        public int Add(T item)
+        public void Add(T item)
         {
             // _dbContext1.Set<T>().Add(item); or remove set
             _dbContext1.Add(item);
-            return _dbContext1.SaveChanges();
+            //return _dbContext1.SaveChanges();
         }
 
-        public int Delete(T item)
+        public void Delete(T item)
         {
             _dbContext1.Remove(item);
-            return _dbContext1.SaveChanges();
+            // return _dbContext1.SaveChanges();
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _dbContext1.Set<T>().AsNoTracking().ToList(); // لاني عايز ارجعهم بس عملت نو تراكينج 
+            if (typeof(T) == typeof(Employee))
+            {
+                return (IEnumerable<T>) _dbContext1.Employees.Include(E => E.Department).AsNoTracking().ToList();
+            }
+            else
+            {
+                // لو مش بكلم ايمبلويي اصلا الريتيرن هترجع عادي زي ماهي
+                return _dbContext1.Set<T>().AsNoTracking().ToList();
+            }
         }
 
         public T GetById(int id)
@@ -43,10 +51,10 @@ namespace MVCTest.BLL.Repositories
             return T;
         }
 
-        public int Update(T item)
+        public void Update(T item)
         {
             _dbContext1.Set<T>().Update(item);
-            return _dbContext1.SaveChanges();
+            //return _dbContext1.SaveChanges();
         }
     }
 }

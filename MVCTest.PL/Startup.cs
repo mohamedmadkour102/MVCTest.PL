@@ -9,6 +9,8 @@ using MVCTest.BLL.Interfaces;
 using MVCTest.BLL.Repositories;
 using MVCTest.DAL.Data;
 using MVCTest.DAL.Models;
+using MVCTest.PL.Extensions;
+using MVCTest.PL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,11 +35,8 @@ namespace MVCTest.PL
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-            services.AddScoped<IEmployeeReopsitory,EmployeeRepository>();
-            // áÇäí äÞáÊ áíÝá ÇáÏíäÏÇäÓí ááÑíÈæ Ý ÈíßÑíÊæ åäÇß æÈíÈÚÊå ááÌíäíÑíß ÑíÈæ 
-            //áÐÇáß ÚãáÊ ÑíÌíÓÊÑ åäÇ áá
-
+            services.AddApplicationServices(); // Extension Method
+            services.AddAutoMapper(m => m.AddProfile(new MappingProfiles()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
